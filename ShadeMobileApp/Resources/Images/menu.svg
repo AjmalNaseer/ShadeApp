@@ -1,0 +1,22 @@
+<svg width="44" height="55" viewBox="0 0 44 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Menu">
+<g id="Border">
+<rect y="0.148071" width="44" height="54.7865" rx="12" fill="white"/>
+<rect x="0.5" y="0.648071" width="43" height="53.7865" rx="11.5" stroke="#CFCFCF" stroke-opacity="0.5"/>
+</g>
+<g id="Synchronize">
+<g id="Group">
+<g id="Group_2">
+<path id="Vector" d="M12.7375 20.3L16.0375 17" stroke="#343434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M12.7375 20.3L9.4375 17" stroke="#343434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Group_3">
+<path id="Vector_3" d="M29.2625 14.225L25.9625 17.525" stroke="#343434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M29.2625 14.225L32.5625 17.525" stroke="#343434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="Vector_5" d="M29.2625 14.85V21.7125C29.2625 23.6625 27.675 25.25 25.725 25.25H16.275" stroke="#343434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M12.7375 19.8875V12.275C12.7375 10.325 14.325 8.73752 16.275 8.73752H25.7125" stroke="#343434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</svg>

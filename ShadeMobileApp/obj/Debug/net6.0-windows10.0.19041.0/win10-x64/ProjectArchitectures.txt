@@ -1,0 +1,1 @@
+E:\Fiverr\Projects\ShadeMobileApp\ShadeMobileApp\ShadeMobileApp.csproj;x64

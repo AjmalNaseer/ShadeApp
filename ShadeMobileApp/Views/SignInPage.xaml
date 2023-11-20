@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ShadeMobileApp.Views.SignInPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#fafafa">
+    <ContentPage.Content>
+        <StackLayout MaximumWidthRequest="440" VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <Image
+                    Margin="0,0,0,0"
+                    HeightRequest="138"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="app_logo.png"
+                    WidthRequest="126" />
+                <Label
+                    Margin="20"
+                    FontAttributes="Bold"
+                    FontFamily="Poppins-Medium, Helvetica"
+                    FontSize="16"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="NoWrap"
+                    Text="Enter your details below to login:"
+                    TextColor="#343434"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start" />
+                <Label
+                    Margin="20,20,20,0"
+                    FontAttributes="Bold"
+                    FontFamily="Poppins-Medium, Helvetica"
+                    FontSize="16"
+                    HorizontalOptions="StartAndExpand"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="NoWrap"
+                    Text="Username"
+                    TextColor="#343434"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start" />
+                <Frame
+                    Margin="20,10,20,0"
+                    BackgroundColor="White"
+                    BorderColor="#CFCFCF"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    HeightRequest="60">
+                    <StackLayout
+                        HorizontalOptions="Start"
+                        Orientation="Horizontal"
+                        VerticalOptions="Center">
+                        <Image
+                            Margin="0,0,10,0"
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="email_icon.png"
+                            WidthRequest="20" />
+                        <StackLayout>
+                            <Entry
+                                Margin="0,-10,0,0"
+                                FontFamily="Poppins-Regular, Helvetica"
+                                FontSize="14"
+                                HorizontalOptions="StartAndExpand"
+                                Placeholder="Enter your username"
+                                PlaceholderColor="#cfcfcf" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Label
+                    Margin="20,20,20,0"
+                    FontAttributes="Bold"
+                    FontFamily="Poppins-Medium, Helvetica"
+                    FontSize="16"
+                    HorizontalOptions="StartAndExpand"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="NoWrap"
+                    Text="Password"
+                    TextColor="#343434"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start" />
+                <Frame
+                    Margin="20,10,20,0"
+                    BackgroundColor="White"
+                    BorderColor="#CFCFCF"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    HeightRequest="60">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                        <Image
+                            Margin="0,0,10,0"
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="lock_icon.png"
+                            WidthRequest="20" />
+                        <StackLayout>
+                            <Entry
+                                Margin="0,-10,0,0"
+                                FontFamily="Poppins-Regular, Helvetica"
+                                FontSize="14"
+                                HorizontalOptions="StartAndExpand"
+                                Placeholder="Your Password"
+                                PlaceholderColor="#cfcfcf" />
+                        </StackLayout>
+
+                        <Image
+                            Margin="0,0,0,0"
+                            HeightRequest="20"
+                            HorizontalOptions="EndAndExpand"
+                            Source="eye_icon.png"
+                            WidthRequest="20" />
+
+                    </StackLayout>
+
+                </Frame>
+
+
+                <Button
+                    Margin="20,40,20,0"
+                    BackgroundColor="#fcdb66"
+                    Clicked="NavigateToMainPage"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontFamily="Poppins-Medium, Helvetica"
+                    FontSize="16"
+                    HeightRequest="65"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Sign In"
+                    TextColor="#2e3234"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

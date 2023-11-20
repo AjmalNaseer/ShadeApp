@@ -1,0 +1,1439 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ShadeMobileApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+    xmlns:local="clr-namespace:ShadeMobileApp.ViewModel"
+    xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+    BackgroundColor="#fafafa">
+
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Transparent">
+            <StackLayout BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
+                <StackLayout
+                    Margin="20"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    Orientation="Horizontal"
+                    VerticalOptions="Start">
+                    <Label
+                        FontAttributes="None"
+                        FontFamily="Poppins-Regular, Helvetica"
+                        FontSize="20"
+                        HeightRequest="30"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Hi, Shade"
+                        TextColor="#343434" />
+                    <Image
+                        Margin="0,0,5,0"
+                        HeightRequest="50"
+                        HorizontalOptions="Start"
+                        Source="menu.png"
+                        WidthRequest="50" />
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout
+                        Margin="8,0,8,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal">
+                        <Frame
+                            Margin="0,0,5,0"
+                            Padding="0"
+                            BorderColor="#cfcfcf"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <StackLayout Margin="0" Orientation="Horizontal">
+                                <Image
+                                    Margin="10,0,0,0"
+                                    HeightRequest="20"
+                                    Source="search_normal.png"
+                                    WidthRequest="20" />
+                                <Entry
+                                    Margin="10,0,0,0"
+                                    FontAttributes="None"
+                                    FontFamily="Poppins-Regular, Helvetica"
+                                    FontSize="14"
+                                    Placeholder="Search"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Image
+                            HeightRequest="50"
+                            HorizontalOptions="End"
+                            Source="filter.png"
+                            WidthRequest="50" />
+                    </StackLayout>
+                    <StackLayout x:Name="SetFilter" />
+                    <StackLayout>
+                        <Frame
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            HasShadow="False">
+                            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="Poppins-SemiBold, Helvetica"
+                                    FontSize="22"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Dashboard"
+                                    TextColor="#343434"
+                                    VerticalOptions="CenterAndExpand" />
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                    <Image
+                                        Margin="0,0,10,0"
+                                        HeightRequest="30"
+                                        HorizontalOptions="End"
+                                        Source="calendar_2.png"
+                                        WidthRequest="30" />
+                                    <Label
+                                        FontAttributes="None"
+                                        FontFamily="Poppins-Regular, Helvetica"
+                                        FontSize="14"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="June 20, 2022"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>
+                        <StackLayout>
+                            <Grid Margin="5" ColumnSpacing="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    BackgroundColor="#2E3234">
+                                    <Label
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Weekly"
+                                        TextColor="#FFFFFF" />
+                                </Frame>
+                                <Frame Grid.Row="0" Grid.Column="1">
+                                    <Label
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Monthly"
+                                        TextColor="#2E3234" />
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                        <Grid Margin="10" ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
+
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HasShadow="True">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout>
+                                        <progressBar:SfCircularProgressBar
+                                            BindingContext="{TextCell}"
+                                            HeightRequest="100"
+                                            HorizontalOptions="Center"
+                                            Maximum="100"
+                                            Minimum="0"
+                                            Progress="80"
+                                            ProgressFill="#9DD030"
+                                            ProgressThickness="12"
+                                            TrackFill="#EFEFEF"
+                                            TrackThickness="12"
+                                            VerticalOptions="Start"
+                                            WidthRequest="100">
+                                            <progressBar:SfCircularProgressBar.Content>
+                                                <StackLayout
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Orientation="Vertical"
+                                                    VerticalOptions="CenterAndExpand">
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"
+                                                        HorizontalOptions="Center"
+                                                        Text="2"
+                                                        TextColor="#2E3234" />
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"
+                                                        HorizontalOptions="Center"
+                                                        Text="Days"
+                                                        TextColor="#2E3234" />
+                                                </StackLayout>
+                                            </progressBar:SfCircularProgressBar.Content>
+                                        </progressBar:SfCircularProgressBar>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="18"
+                                            Text="Approval Rate"
+                                            TextColor="#2E3234"
+                                            VerticalOptions="End" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HasShadow="True">
+                                <StackLayout Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <chart:SfCartesianChart
+                                            Grid.Row="0"
+                                            HeightRequest="100"
+                                            VerticalOptions="Start"
+                                            WidthRequest="100">
+
+                                            <!--  Setting BindingContext  -->
+                                            <chart:SfCartesianChart.BindingContext>
+                                                <local:DataViewModel />
+                                            </chart:SfCartesianChart.BindingContext>
+
+                                            <!--  Initialize the horizontal axis for the .NET MAUI Cartesian Chart.  -->
+                                            <chart:SfCartesianChart.XAxes>
+                                                <chart:CategoryAxis />
+                                            </chart:SfCartesianChart.XAxes>
+
+                                            <!--  Initialize the vertical axis for the .NET MAUI Cartesian Chart.  -->
+                                            <chart:SfCartesianChart.YAxes>
+                                                <chart:NumericalAxis />
+                                            </chart:SfCartesianChart.YAxes>
+
+                                            <!--  Adding Spline Series to the .NET MAUI Cartesian Chart.  -->
+                                            <chart:SplineSeries
+                                                ItemsSource="{Binding Data}"
+                                                XBindingPath="Month"
+                                                YBindingPath="Target" />
+                                        </chart:SfCartesianChart>
+                                        <Label
+                                            Grid.Row="1"
+                                            FontSize="18"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="Rate Progress"
+                                            TextColor="#2E3234"
+                                            VerticalOptions="End" />
+                                    </Grid>
+
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+
+                        <Grid Margin="10" ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HasShadow="True">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout>
+                                        <progressBar:SfCircularProgressBar
+                                            BindingContext="{TextCell}"
+                                            HeightRequest="100"
+                                            HorizontalOptions="Center"
+                                            Maximum="100"
+                                            Minimum="0"
+                                            Progress="80"
+                                            ProgressFill="#FCDB66"
+                                            ProgressThickness="12"
+                                            TrackFill="#EFEFEF"
+                                            TrackThickness="12"
+                                            VerticalOptions="Start"
+                                            WidthRequest="100">
+                                            <progressBar:SfCircularProgressBar.Content>
+                                                <StackLayout
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Orientation="Vertical"
+                                                    VerticalOptions="CenterAndExpand">
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontSize="16"
+                                                        HorizontalOptions="Center"
+                                                        Text="13"
+                                                        TextColor="#2E3234" />
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontSize="12"
+                                                        HorizontalOptions="Center"
+                                                        Text="Approvals"
+                                                        TextColor="#2E3234" />
+                                                </StackLayout>
+                                            </progressBar:SfCircularProgressBar.Content>
+                                        </progressBar:SfCircularProgressBar>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="18"
+                                            Text="Total Pendings"
+                                            TextColor="#2E3234"
+                                            VerticalOptions="EndAndExpand" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HasShadow="True">
+                                <StackLayout>
+                                    <Grid>
+                                        <chart:SfCartesianChart
+                                            HeightRequest="150"
+                                            VerticalOptions="Start"
+                                            WidthRequest="150">
+                                            <!--  Setting BindingContext  -->
+                                            <chart:SfCartesianChart.BindingContext>
+                                                <local:DataViewModel />
+                                            </chart:SfCartesianChart.BindingContext>
+
+                                            <!--  Initialize the horizontal axis for the .NET MAUI Cartesian Chart.  -->
+                                            <chart:SfCartesianChart.XAxes>
+                                                <chart:CategoryAxis />
+                                            </chart:SfCartesianChart.XAxes>
+
+                                            <!--  Initialize the vertical axis for the .NET MAUI Cartesian Chart.  -->
+                                            <chart:SfCartesianChart.YAxes>
+                                                <chart:NumericalAxis />
+                                            </chart:SfCartesianChart.YAxes>
+
+                                            <!--  Adding Column Series to the .NET MAUI Cartesian Chart.  -->
+                                            <chart:ColumnSeries
+                                                ItemsSource="{Binding Data}"
+                                                XBindingPath="Month"
+                                                YBindingPath="Target" />
+                                        </chart:SfCartesianChart>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+
+
+                        <Frame
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            HasShadow="False">
+                            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="Poppins-SemiBold, Helvetica"
+                                    FontSize="22"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Pending Types"
+                                    TextColor="#343434"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Margin="10"
+                            ColumnSpacing="10"
+                            RowSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="list.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Purchase Order"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#fef1c2"
+                                            BorderColor="#d8b744"
+                                            CornerRadius="25"
+                                            HorizontalOptions="CenterAndExpand">
+                                            <StackLayout>
+                                                <Label
+                                                    Text="Pending"
+                                                    TextColor="#d8b744"
+                                                    VerticalOptions="Center" />
+
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame
+                                            BackgroundColor="Black"
+                                            CornerRadius="25"
+                                            HorizontalOptions="End">
+                                            <!--  Adjust the value based on your design  -->
+                                            <Label
+                                                Text="3"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="layers.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Draft POs"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#e1eccf"
+                                            BorderColor="#79a531"
+                                            CornerRadius="25"
+                                            HorizontalOptions="Center">
+                                            <StackLayout>
+                                                <Label
+                                                    Text="Approved"
+                                                    TextColor="#79a531"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="clipboard.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Requisitions"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#fef1c2"
+                                            BorderColor="#d8b744"
+                                            CornerRadius="25"
+                                            HorizontalOptions="CenterAndExpand">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Pending"
+                                                    TextColor="#d8b744"
+                                                    VerticalOptions="Center" />
+
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame
+                                            BackgroundColor="Black"
+                                            CornerRadius="25"
+                                            HorizontalOptions="End">
+                                            <!--  Adjust the value based on your design  -->
+                                            <Label
+                                                HorizontalOptions="Center"
+                                                Text="1"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="calendar.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Timesheet"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#fef1c2"
+                                            BorderColor="#d8b744"
+                                            CornerRadius="25"
+                                            HorizontalOptions="CenterAndExpand">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Pending"
+                                                    TextColor="#d8b744"
+                                                    VerticalOptions="Center" />
+
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame
+                                            BackgroundColor="Black"
+                                            CornerRadius="25"
+                                            HorizontalOptions="End">
+                                            <!--  Adjust the value based on your design  -->
+                                            <Label
+                                                HorizontalOptions="Center"
+                                                Text="5"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="profile_user.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Leaves"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#e1eccf"
+                                            BorderColor="#79a531"
+                                            CornerRadius="25"
+                                            HorizontalOptions="CenterAndExpand">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Approved"
+                                                    TextColor="#79a531"
+                                                    VerticalOptions="Center" />
+
+                                            </StackLayout>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="stopwatch.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Overtime"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#fef1c2"
+                                            BorderColor="#d8b744"
+                                            CornerRadius="25"
+                                            HorizontalOptions="CenterAndExpand">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Pending"
+                                                    TextColor="#d8b744"
+                                                    VerticalOptions="Center" />
+
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame
+                                            BackgroundColor="Black"
+                                            CornerRadius="25"
+                                            HorizontalOptions="End">
+                                            <!--  Adjust the value based on your design  -->
+                                            <Label
+                                                HorizontalOptions="Center"
+                                                Text="2"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="calculator.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Payments"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#e1eccf"
+                                            BorderColor="#79a531"
+                                            CornerRadius="25">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    HorizontalOptions="Center"
+                                                    Text="Approved"
+                                                    TextColor="#79a531"
+                                                    VerticalOptions="Center" />
+
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                HasShadow="True"
+                                VerticalOptions="Fill">
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Vertical"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image
+                                        HeightRequest="40"
+                                        Source="appraisals.png"
+                                        WidthRequest="40" />
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Appraisals"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalOptions="End">
+                                        <Frame
+                                            BackgroundColor="#e1eccf"
+                                            BorderColor="#79a531"
+                                            CornerRadius="25">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Approved"
+                                                    TextColor="#79a531" />
+                                            </StackLayout>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+
+                        <Frame
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            HasShadow="False">
+                            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="Poppins-SemiBold, Helvetica"
+                                    FontSize="22"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Performance Appraisals"
+                                    TextColor="#343434"
+                                    VerticalOptions="CenterAndExpand" />
+                                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                    <Label
+                                        FontAttributes="None"
+                                        FontFamily="Poppins-Regular, Helvetica"
+                                        FontSize="14"
+                                        HorizontalOptions="Start"
+                                        Text="Direct Reporting"
+                                        TextColor="#343434"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <Image
+                                        HeightRequest="20"
+                                        HorizontalOptions="StartAndExpand"
+                                        Source="arrow_down.png"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="20" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout Orientation="Vertical">
+                            <Grid Margin="10" ColumnSpacing="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Grid.Row="0" Grid.Column="0">
+                                    <Label
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="2023"
+                                        TextColor="#2E3234" />
+                                </Frame>
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    BackgroundColor="#2E3234">
+                                    <Label
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="2022"
+                                        TextColor="#FFFFFF" />
+                                </Frame>
+                            </Grid>
+                            <Grid Margin="10" RowSpacing="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame
+                                    Grid.Row="0"
+                                    BorderColor="Transparent"
+                                    HasShadow="True">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalOptions="CenterAndExpand">
+
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+
+                                        <Grid HorizontalOptions="Start">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <!--  Name row  -->
+                                                <RowDefinition Height="Auto" />
+                                                <!--  Progress bar row  -->
+                                            </Grid.RowDefinitions>
+
+                                            <!--  Name Label  -->
+                                            <Label
+                                                Grid.Row="0"
+                                                FontAttributes="None"
+                                                FontFamily="Poppins-Regular, Helvetica"
+                                                FontSize="21"
+                                                HorizontalOptions="Start"
+                                                Text="Alaa Ahmed Ismail"
+                                                TextColor="#343434B2"
+                                                VerticalOptions="Center" />
+
+                                            <!--  Progress Bar  -->
+                                            <progressBar:SfLinearProgressBar
+                                                Grid.Row="1"
+                                                HorizontalOptions="Center"
+                                                Progress="40"
+                                                ProgressFill="#FCDB66"
+                                                WidthRequest="170" />
+                                        </Grid>
+
+                                        <Label
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="3 of 5"
+                                            TextColor="#343434"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="EndAndExpand"
+                                            Source="status_profile.png"
+                                            WidthRequest="30" />
+                                    </StackLayout>
+
+                                </Frame>
+                                <Frame
+                                    Grid.Row="1"
+                                    BorderColor="Transparent"
+                                    HasShadow="True">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalOptions="CenterAndExpand">
+
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+
+                                        <Grid HorizontalOptions="Start">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <!--  Name row  -->
+                                                <RowDefinition Height="Auto" />
+                                                <!--  Progress bar row  -->
+                                            </Grid.RowDefinitions>
+
+                                            <!--  Name Label  -->
+                                            <Label
+                                                Grid.Row="0"
+                                                FontAttributes="None"
+                                                FontFamily="Poppins-Regular, Helvetica"
+                                                FontSize="21"
+                                                HorizontalOptions="Start"
+                                                Text="Alaa Ahmed Ismail"
+                                                TextColor="#343434B2"
+                                                VerticalOptions="Center" />
+
+                                            <!--  Progress Bar  -->
+                                            <progressBar:SfLinearProgressBar
+                                                Grid.Row="1"
+                                                HorizontalOptions="Center"
+                                                Progress="70"
+                                                ProgressFill="#9DD030"
+                                                WidthRequest="170" />
+                                        </Grid>
+
+                                        <Label
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="4 of 5"
+                                            TextColor="#343434"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="EndAndExpand"
+                                            Source="status_profile.png"
+                                            WidthRequest="30" />
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame
+                                    Grid.Row="2"
+                                    BorderColor="Transparent"
+                                    HasShadow="True">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalOptions="CenterAndExpand">
+
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+
+                                        <Grid HorizontalOptions="Start">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <!--  Name row  -->
+                                                <RowDefinition Height="Auto" />
+                                                <!--  Progress bar row  -->
+                                            </Grid.RowDefinitions>
+
+                                            <!--  Name Label  -->
+                                            <Label
+                                                Grid.Row="0"
+                                                FontAttributes="None"
+                                                FontFamily="Poppins-Regular, Helvetica"
+                                                FontSize="21"
+                                                HorizontalOptions="Start"
+                                                Text="Alaa Ahmed Ismail"
+                                                TextColor="#343434B2"
+                                                VerticalOptions="Center" />
+
+                                            <!--  Progress Bar  -->
+                                            <progressBar:SfLinearProgressBar
+                                                Grid.Row="1"
+                                                HorizontalOptions="Center"
+                                                Progress="20"
+                                                ProgressFill="#F95B29"
+                                                WidthRequest="170" />
+                                        </Grid>
+
+                                        <Label
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="1 of 5"
+                                            TextColor="#343434"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="EndAndExpand"
+                                            Source="status_profile.png"
+                                            WidthRequest="30" />
+                                    </StackLayout>
+
+                                </Frame>
+
+
+
+                            </Grid>
+                        </StackLayout>
+
+
+                        <Frame
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            HasShadow="False">
+                            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="Poppins-SemiBold, Helvetica"
+                                    FontSize="22"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="All Approvals"
+                                    TextColor="#343434"
+                                    VerticalOptions="CenterAndExpand" />
+
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid Margin="10" RowSpacing="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame
+                                Grid.Row="0"
+                                BorderColor="Transparent"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+                                        <StackLayout
+                                            Margin="20,0,0,10"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="P0248 Upgrade Security F-Indir"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="Salman S. Binladen Trading"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="10"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="21000784 on 20/06/2022"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="14"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="Total"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="3,616,717.00"
+                                                    TextColor="#D8B744"
+                                                    VerticalOptions="CenterAndExpand" />
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!--  Name Label  -->
+
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#FEF1C2"
+                                            BorderColor="#FCDB66"
+                                            CornerRadius="25"
+                                            HorizontalOptions="Center">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Pending Purchase Order"
+                                                    TextColor="#D8B744"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="1"
+                                BorderColor="Transparent"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+                                        <StackLayout
+                                            Margin="20,0,0,10"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="IT ERP Section"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="Ali Moh."
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="10"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="21000784 on 20/06/2022"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="14"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="Total"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="3 Emp"
+                                                    TextColor="#79A531"
+                                                    VerticalOptions="CenterAndExpand" />
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!--  Name Label  -->
+
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#E1ECCF"
+                                            BorderColor="#79A531"
+                                            CornerRadius="25"
+                                            HorizontalOptions="Center">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Approved Timesheet"
+                                                    TextColor="#79A531"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="2"
+                                BorderColor="Transparent"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+                                        <StackLayout
+                                            Margin="20,0,0,10"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="Mangrove Eco Park in Rahima"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="Mirza Noor Ali"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="10"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="21000784 on 20/06/2022"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="14"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="Total"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="21 Days"
+                                                    TextColor="#F95B29"
+                                                    VerticalOptions="CenterAndExpand" />
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!--  Name Label  -->
+
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#FFD2C3"
+                                            BorderColor="#F95B29"
+                                            CornerRadius="25"
+                                            HorizontalOptions="Center">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Rejected Leave"
+                                                    TextColor="#F95B29"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="3"
+                                BorderColor="Transparent"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            Source="completed.png"
+                                            WidthRequest="30" />
+                                        <StackLayout
+                                            Margin="20,0,0,10"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="Light Civil Section"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="Mahfuj Alam Abdul Hakim"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="10"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    Text="21000784 on 20/06/2022"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Vertical">
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="14"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="Total"
+                                                    TextColor="#343434"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Label
+                                                    FontAttributes="None"
+                                                    FontFamily="Poppins-Regular, Helvetica"
+                                                    FontSize="12"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="5 Hours"
+                                                    TextColor="#7EA2CC"
+                                                    VerticalOptions="CenterAndExpand" />
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!--  Name Label  -->
+
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+                                        <Frame
+                                            BackgroundColor="#CDDFF4"
+                                            BorderColor="#7EA2CC"
+                                            CornerRadius="25"
+                                            HorizontalOptions="Center">
+                                            <StackLayout>
+                                                <Label
+                                                    FontSize="12"
+                                                    Text="Rejected Leave"
+                                                    TextColor="#7EA2CC"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+
+                        </Grid>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+                <StackLayout
+                    Margin="20"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="EndAndExpand">
+                    <ImageButton
+                        BackgroundColor="Transparent"
+                        Clicked="NavigateToAddProduct"
+                        HeightRequest="60"
+                        Source="add_product.png"
+                        WidthRequest="60" />
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                    <Frame CornerRadius="40" HasShadow="True">
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal"
+                            Spacing="40">
+                            <Image
+                                HeightRequest="30"
+                                Source="home.png"
+                                WidthRequest="30" />
+                            <Image
+                                HeightRequest="30"
+                                Source="send_2.png"
+                                WidthRequest="30" />
+                            <Image
+                                HeightRequest="30"
+                                Source="heart.png"
+                                WidthRequest="30" />
+                            <Image
+                                HeightRequest="30"
+                                Source="stickynote.png"
+                                WidthRequest="30" />
+                            <Image
+                                HeightRequest="30"
+                                Source="profile.png"
+                                WidthRequest="30" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
